@@ -14,15 +14,15 @@ variable "dhcp_subnet" {default = "10.0.99.2/24"}
 
 
 # Routers
-variable "t0_name" {}
-variable "t0_static_route" {}
+# variable "t0_name" {}
+# variable "t0_static_route" {}
 
-variable "t1_name" {}
-variable "t1_services" {}
+# variable "t1_name" {}
+# variable "t1_services" {}
 
 
-# Segments
-variable "segments" {}
+# # Segments
+# variable "segments" {}
 
 
 # Misc
