@@ -4,25 +4,39 @@ variable "nsx_password" {}
 
 
 # required objets
-variable "transport_zone" { default = "Overlay-TZ" }
+variable "tz_overlay" { default = "nsx-overlay-transportzone" }
+variable "tz_vlan" { default = "nsx-vlan-transportzone" }
 variable "edge_cluster" { default = "Edge-Cluster" }
 
 
 # IP management
-variable "dhcp_name" { default = "tier_dhcp" }
-variable "dhcp_subnet" {default = "10.0.99.2/24"}
+variable "ip_pool_name" { default = "vtep" }
+variable "ip_pool_range" { 
+    default = {
+        "name": "vtep_range",
+        "start": "172.20.11.151",
+        "end": "172.20.11.170",
+        "cidr": "172.20.11.0/24",
+        "gateway": "172.20.11.10" 
+    }
+}
+variable "dhcp_name" { default = "default_dhcp" }
+variable "dhcp_subnet" {default = "3.3.3.3/24"}
 
 
-# Routers
-variable "t0_name" {}
-variable "t0_static_route" {}
-
-variable "t1_name" {}
-variable "t1_services" {}
+# Base Router
+variable "t0_name" { default = "default_t0" }
+variable "t0_static_route" { default = "192.168.95.41/24" }
 
 
-# Segments
-variable "segments" {}
+
+# Secondary Router
+# variable "t1_name" {}
+# variable "t1_services" {}
+
+
+# # Segments
+# variable "segments" {}
 
 
 # Misc

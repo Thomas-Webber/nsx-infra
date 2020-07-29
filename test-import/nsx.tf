@@ -9,25 +9,22 @@ provider "nsxt" {
   retry_on_status_codes = [429]
 }
 
+# IP Pool
+resource "nsxt_policy_ip_pool" "ip_pool" {}
+resource "nsxt_policy_ip_pool_static_subnet" "ip_pool_vtep" {}
 
-# Requirements
-# data "nsxt_policy_edge_cluster" "edge_cluster" {
-#   display_name = var.edge_cluster
-# }
+# Vlan Segment
+resource "nsxt_policy_vlan_segment" "vlan" {}
 
-# data "nsxt_policy_transport_zone" "overlay_tz" {
-#   display_name = var.transport_zone
-# }
-
+# DHCP
+resource "nsxt_policy_dhcp_server" "dhcp" {}
 
 # T0
 resource "nsxt_policy_tier0_gateway" "t0_gateway" {}
+resource "nsxt_policy_tier0_gateway_interface" "interface1" {}
 
-# # DHCP
-# resource "nsxt_policy_dhcp_server" "tier_dhcp" {}
+# T1
+resource "nsxt_policy_tier1_gateway" "t1_gateway" {}
 
-# # T1
-# resource "nsxt_policy_tier1_gateway" "t1_gateway" {}
-
-# # Segments
-# resource "nsxt_policy_segment" "app" {}
+# Segments
+resource "nsxt_policy_segment" "seg1" {}
