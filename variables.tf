@@ -24,20 +24,28 @@ variable "dhcp_name" { default = "default_dhcp" }
 variable "dhcp_subnet" {default = "3.3.3.3/24"}
 
 
-# Base Router
+# Base Router T0
 variable "t0_name" { default = "default_t0" }
-variable "t0_static_route" { default = "192.168.95.41/24" }
+variable "t0_interface" { default = "192.168.145.85/24" }
+variable "t0_next_hop" { default = "192.168.145.254" }
 
 
 
-# Secondary Router
-# variable "t1_name" {}
-# variable "t1_services" {}
+
+# Secondary Router T1
+variable "t1_name" { default = "default_t1" }
 
 
-# # Segments
-# variable "segments" {}
-
+# Segments
+variable "segment_overlay_name" { default = "segment_1" }
+variable "segment_overlay_config" { 
+    default = {
+        "cidr": "10.0.1.1/24",
+        "dhcp": "10.0.1.69/24",
+        "ranges": ["10.0.1.2-10.0.1.60"],
+        "dns": ["192.168.145.2"]
+    }
+}
 
 # Misc
 variable "tag_scope" { default = "creator" }

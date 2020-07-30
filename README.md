@@ -13,3 +13,6 @@ nsx_manager = "nsx-manager.adlere.priv"
 nsx_username = "admin"
 nsx_password = "VMware1!VMwawre1!"
 ```
+
+## Limites
+Terraform can not create Route Advertisement rules for T0 Gateway
