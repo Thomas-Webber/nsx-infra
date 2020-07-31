@@ -10,14 +10,24 @@ variable "edge_cluster" { default = "Edge-Cluster" }
 
 
 # IP management
-variable "ip_pool_name" { default = "vtep" }
-variable "ip_pool_range" { 
+variable "ip_pool1_name" { default = "vtep" }
+variable "ip_pool1_range" { 
     default = {
         "name": "vtep_range",
         "start": "172.20.11.151",
         "end": "172.20.11.170",
         "cidr": "172.20.11.0/24",
         "gateway": "172.20.11.10" 
+    }
+}
+variable "ip_pool2_name" { default = "vtep_edge" }
+variable "ip_pool2_range" { 
+    default = {
+        "name": "vtep_range",
+        "start": "172.20.21.151",
+        "end": "172.20.21.170",
+        "cidr": "172.20.21.0/24",
+        "gateway": "172.20.21.10" 
     }
 }
 variable "dhcp_name" { default = "default_dhcp" }

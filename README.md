@@ -1,11 +1,12 @@
 ### It creates the following objects:
-- Tier-1 Gateway (that gets attached to an existing Tier-0 Gateway)
+- Tier 0 Gateway
+- Tier-1 Gateway (that gets attached to the Tier-0 Gateway)
 - A DHCP Server providing DHCP Addresses to all 3 Segments
-- 3 Segments (Web, App, DB)
+- 1 Segments (Web, App, DB)
 ### The config below requires the following to be pre-created
 - Edge Cluster
 - Overlay Transport Zone
-- Tier-0 Gateway
+
 
 ```
 #Example terraform.tfvars

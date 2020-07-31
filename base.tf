@@ -14,17 +14,29 @@ data "nsxt_policy_edge_cluster" "edge_cluster" { display_name = var.edge_cluster
 data "nsxt_policy_transport_zone" "tz_overlay" { display_name = var.tz_overlay }
 data "nsxt_policy_transport_zone" "tz_vlan" { display_name = var.tz_vlan }
 
-# IP Pool
-resource "nsxt_policy_ip_pool" "ip_pool" { display_name = var.ip_pool_name }
+# IP Pools
+resource "nsxt_policy_ip_pool" "ip_pool" { display_name = var.ip_pool1_name }
 resource "nsxt_policy_ip_pool_static_subnet" "ip_pool_vtep" {
-    cidr            = var.ip_pool_range.cidr
-    display_name    = var.ip_pool_range.name
-    gateway         = var.ip_pool_range.gateway
+    cidr            = var.ip_pool1_range.cidr
+    display_name    = var.ip_pool1_range.name
+    gateway         = var.ip_pool1_range.gateway
     pool_path       = nsxt_policy_ip_pool.ip_pool.path
 
     allocation_range {
-        end   = var.ip_pool_range.end
-        start = var.ip_pool_range.start
+        end   = var.ip_pool1_range.end
+        start = var.ip_pool1_range.start
+    }
+}
+resource "nsxt_policy_ip_pool" "ip_pool_edge" { display_name = var.ip_pool2_name }
+resource "nsxt_policy_ip_pool_static_subnet" "ip_pool_vtep_edge" {
+    cidr            = var.ip_pool2_range.cidr
+    display_name    = var.ip_pool2_range.name
+    gateway         = var.ip_pool2_range.gateway
+    pool_path       = nsxt_policy_ip_pool.ip_pool_edge.path
+
+    allocation_range {
+        end   = var.ip_pool2_range.end
+        start = var.ip_pool2_range.start
     }
 }
 
