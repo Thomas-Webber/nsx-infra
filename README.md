@@ -10,7 +10,7 @@
 
 ```
 #Example terraform.tfvars
-nsx_manager = "nsx-manager.adlere.priv"
+nsx_manager = "192.168.145.10"
 nsx_username = "admin"
 nsx_password = "VMware1!VMwawre1!"
 ```
